@@ -343,12 +343,19 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
      */
     public static Integer sumPositiveIntegers() {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
-
+        Integer sum = 0;
         // Loop through the list of integers
-            // if the number is negative skip this iteration
+        for(Integer num : numbers){
+
+             // if the number is negative skip this iteration
+             if(num > 0){
+                sum += num;
+             }
+        }
+       
         
 
-        return null; // Replace null with the variable you used to store the result
+        return sum; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -361,11 +368,19 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
         // The variable to store the index of the word
+        Integer sWord = 0;
 
         // Loop through the list of words
+        for( sWord = 0; sWord < words.size(); sWord++) {
+            if (words[sWord] == wordToFind){
+                return sWord;
+
+            }
+
+        }
             // If the current word is the word to find, exit the loop
 
-        return null; // Replace null with the variable you used to store the result
+        return -1; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -379,7 +394,19 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
 
-        return null; // Replace null with the variable you used to store the result
+        // Total amount of money
+        Decimal totalMoney = 0;
+        // loop 
+        for (Decimal money : moneyInWallet) {
+            // add the money to the total until it exceeds 40 dollars
+            if(totalMoney < 40){
+                totalMoney += money;
+            } else {
+                break;
+            }
+        }
+
+        return totalMoney; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -391,6 +418,8 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
     public static Map<String, Integer> addItemsToMap() {
         // Initialize an empty Map
 
+        Map<String, Integer> fruits = new Map<String, Integer>();
+
         // Add key-value pairs to the Map
         // add Apples => 5
         // add Oranges => 10
@@ -398,7 +427,16 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
         // add Pears => 20
         // add Grapes => 25
 
-        return null; // Replace null with the variable you used to store the result
+        fruits.put('Apples',5);
+        fruits.put('Oranges',10);
+        fruits.put('Bananas',15);
+        fruits.put('Pears',20);
+        fruits.put('Grapes',25);
+
+
+
+
+        return fruits; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -412,6 +450,12 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
      */
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
+        Map<String, Integer> employeeSalaries = new Map<String, Integer>();
+
+        employeeSalaries.put('John Doe', 50000);
+        employeeSalaries.put('Jane Smith', 60000);
+        employeeSalaries.put('Sam Brown', 55000);
+        employeeSalaries.put('Alice Johnson', 65000);
 
         // Add key-value pairs to the Map
         // add John Doe => 50000
@@ -422,7 +466,7 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
         // Get the salary of the employee
 
         // Return the salary of the employee, or null if the employee is not found in the Map
-        return null; // Replace null with the variable you used to store the result
+        return employeeSalaries.get(employeeName); // Replace null with the variable you used to store the result
     }
 
     /**
@@ -444,15 +488,39 @@ for (Integer i = 1 ; i <= intLimit ; i++) {
         // add Jane Smith => 60000
         // add Sam Brown => 55000
         // add Alice Johnson => 65000
+        employeeSalaries.put('John Doe', 50000);
+        employeeSalaries.put('Jane Smith', 60000);
+        employeeSalaries.put('Sam Brown', 55000);
+        employeeSalaries.put('Alice Johnson', 65000);
+
 
         // Initialize a list to store the names of high paid employees
+        List<String> highPaidEmployees = new List<String>();
+
+        // Add the names of high paid employees to the list
+        // add John Doe
+        // add Alice Johnson
+       // highPaidEmployees.add('John Doe');
+        //highPaidEmployees.add('Jane Smith');
+        //highPaidEmployees.add('Sam Brown');
+        //highPaidEmployees.add('Alice Johnson');
+
+
+
 
         // Iterate over the Map using a for loop
+        for (String employeeName : employeeSalaries.keySet()) {
+
             // Check if the salary of the employee is more than 55000
+            if(employeeSalaries.get(employeeName) > 55000){
                 // Add the employee to the list of high paid employees
+                highPaidEmployees.add(employeeName);
+            }
+            
+        }
 
         // Return the list of high paid employees
-        return null; // Replace null with the variable you used to store the result
+        return highPaidEmployees; // Replace null with the variable you used to store the result
     }
 
 }
